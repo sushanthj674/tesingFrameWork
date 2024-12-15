@@ -14,12 +14,9 @@ const concatArrays = function (...arrays) {
 
 const isTestFailed = function (test) {
   const [expected, actual] = [test[2], test[3]];
+  const isNotEqual = '' + expected !== '' + actual;
 
-  const isEqual = expected === actual && !Array.isArray(expected);
-  let isArrayEqual = Array.isArray(expected);
-  isArrayEqual = isArrayEqual && expected.join() === actual.join();
-
-  return !(isEqual || isArrayEqual);
+  return isNotEqual;
 };
 
 const execute = function (params) {
