@@ -14,13 +14,13 @@ const concatArrays = function (...arrays) {
 
 const isTestFailed = function (test) {
   const [expected, actual] = [test[2], test[3]];
-  const isNotEqual = '' + expected !== '' + actual;
+  const isFailed = '' + expected !== '' + actual;
 
-  return isNotEqual;
+  return isFailed;
 };
 
-const execute = function (params) {
-  const [functionName, parameters, expected] = params;
+const execute = function (testCase) {
+  const [functionName, parameters, expected] = testCase;
   const actual = functionName(...parameters);
 
   return Array(functionName, parameters, expected, actual);
